@@ -17,6 +17,7 @@ jq = jQuery.noConflict();
  ****************************************************************************/
  
 var apiUri = "wss://cpclientapi.softphone.com:9002/counterpath/socketapi/v1/";
+var baseURL = "https://lucy.animana.com/search?phoneNumber=";
 var websocket;
  
 function initialize() {
@@ -126,7 +127,7 @@ function callActivity(callList) {
          
          if (participant.state == ApiCallStates.properties[ApiCallStates.CONNECTED].text) {
             if (checkIfRingingCallExist(call.id) == true) {
-               var url = 'http://www.google.com/search?as_q=' + participant.number;
+               var url = baseURL + participant.number;
                window.open(url);
                
                removeRingingCall(call.id);
